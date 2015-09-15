@@ -1,3 +1,37 @@
   <h1><%= @question.title %></h1>
   <%= @question.description %>
 <%= link_to 'Back to index', root_path %>
+
+<% @answers.each do |answer|%>
+
+ <table>
+     <tr>
+       <th> Answer: </th>
+       <td><%= answer.description %> </td>
+     </tr>
+     <tr>
+       <th >best?</th>
+       <td ><%= answer.best %></td>
+       <br>
+     </tr>
+ </table>
+
+ <% end %>
+
+
+
+  <%= form_for([@question, @question.answers.build]) do |f| %>
+
+    <div class="large-4 columns">
+      <%= "Answer" %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div class="large-12 columns">
+      <%= "Best" %>
+      <%= f.select :best, [['True',true],['False',false]] %>
+      <br>
+      <%= f.submit %>
+    </div>
+
+  <% end %>

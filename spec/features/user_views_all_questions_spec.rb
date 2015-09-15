@@ -14,13 +14,11 @@ feature 'user views all questions', %(
     question_1 = Question.create(
       title: "hellohellohellohellohellohellohellohellohello",
       description: "something something something something something something something something something something something something something something something something something ",
-      user_id: '2'
     )
 
     question_2 = Question.create(
       title: "goodbye goodbye goodbye goodbye goodbye goodbye goodbye goodbye ",
       description: "something something something something something something something something something something something something something something something something something ",
-      user_id: '3'
     )
     visit root_path
     expect(page).to have_content(question_2.title)

@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150914170525) do
   create_table "answers", force: :cascade do |t|
     t.string   "description",                 null: false
     t.boolean  "best",        default: false
-    t.integer  "user_id",                     null: false
     t.integer  "question_id",                 null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
@@ -28,15 +27,8 @@ ActiveRecord::Schema.define(version: 20150914170525) do
   create_table "questions", force: :cascade do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
-    t.integer  "user_id",     null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
